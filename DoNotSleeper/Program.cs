@@ -9,8 +9,17 @@ var isWorking = true;
 while (isWorking)
 {
     var mousePosition = Cursor.Position;
-    Cursor.Position = new Point(mousePosition.X - 10, mousePosition.Y - 10);
-    for (var i = 0; i < 60 && isWorking; i++)
+    if (mousePosition.X == 0 || mousePosition.Y == 0)
+    {
+        Cursor.Position = new Point(500, 500);
+    }
+
+    else
+    {
+        Cursor.Position = new Point(mousePosition.X - 10, mousePosition.Y - 10);
+    }
+    
+    for (var i = 0; i < 15 && isWorking; i++)
     {
         await Task.Delay(1000);
         if(Console.KeyAvailable)
